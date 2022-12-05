@@ -1,6 +1,6 @@
-# SSH Setup
+# Sapienza Cluster Unofficial Guide
 
-**Official guide**: [gdocs link](https://docs.google.com/document/d/1XY7cy8Roqq4w_Q-zNiVTgHXwyRZn9WhqiUMyCky3514)
+**Official guide**: [gdoc link](https://docs.google.com/document/d/1XY7cy8Roqq4w_Q-zNiVTgHXwyRZn9WhqiUMyCky3514)
 
 ## SSH setup guide
 
