@@ -71,6 +71,23 @@ conda init
 exec bash
 ```
 
+### Cloning old environments
+
+Due to changes in the path of the conda environments, copy and pasting the old env folder into the new directory does not fully work.
+The best solution is to export the old environment into a `yaml` file and then creating a new one.
+
+Export and remove the old environment:
+```sh
+conda activate ENV_NAME
+conda env export --no-builds > env.yml
+conda remove --name ENV_NAME --all
+```
+
+Create the new environment:
+```sh
+conda env create -f env.yml
+```
+
 ## Setting default permissions (tentative)
 
 The following process should be executed on the shared folder which all users should be able to access (e.g. `/storage/hdd-1` on ares). Moreover, we need to exec this just one time and then all the files and folders created in the shared directory should be automatically accessible (and writable) by everyone.
@@ -106,20 +123,3 @@ Before starting, make sure that `acl` is installed by running: `sudo apt-get ins
     default:group::rwx
     default:other::r-x
     ```
-
-### Cloning old environments
-
-Due to changes in the path of the conda environments, copy and pasting the old env folder into the new directory does not fully work.
-The best solution is to export the old environment into a `yaml` file and then creating a new one.
-
-Export and remove the old environment:
-```sh
-conda activate ENV_NAME
-conda env export --no-builds > env.yml
-conda remove --name ENV_NAME --all
-```
-
-Create the new environment:
-```sh
-conda env create -f env.yml
-```
