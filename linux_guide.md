@@ -71,6 +71,42 @@ conda init
 exec bash
 ```
 
+## Setting default permissions (tentative)
+
+The following process should be executed on the shared folder which all users should be able to access (e.g. `/storage/hdd-1` on ares). Moreover, we need to exec this just one time and then all the files and folders created in the shared directory should be automatically accessible (and writable) by everyone.
+
+Before starting, make sure that `acl` is installed by running: `sudo apt-get install acl`.
+
+1. Set the `setgid` bit, so that files/folders under <directory> will be created with the same group as <directory>:  
+    ```sh
+    chmod g+s <directory>       # for example /storage/hdd-1
+    ```
+    g+s will ensure that new content in the directory will inherit the group ownership
+  
+2. Set the default ACLs for the group and other:  
+    ```sh
+    setfacl -R -m g::rwx <directory>      # give read, write and execution rights to users inside the group
+    setfacl -R -m o::rx <directory>       # give read and execution rights to users outside the group
+    ```
+  
+3. Verify that everything has been set correctly:  
+    ```sh
+    getfacl <directory>
+    ```  
+    Output:
+    ```sh
+    # file: ../<directory>/
+    # owner: <user>
+    # group: media
+    # flags: -s-
+    user::rwx
+    group::rwx
+    other::r-x
+    default:user::rwx
+    default:group::rwx
+    default:other::r-x
+    ```
+
 ### Cloning old environments
 
 Due to changes in the path of the conda environments, copy and pasting the old env folder into the new directory does not fully work.
