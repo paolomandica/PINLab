@@ -66,7 +66,8 @@ sudo chmod 770 -R PATH_TO_CONDA
 
 On normal user do:
 ```sh
-export PATH="PATH_TO_CONDA/bin:$PATH" && exec bash
+export PATH="PATH_TO_CONDA/bin:$PATH"
+exec bash
 conda init
 exec bash
 ```
