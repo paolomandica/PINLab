@@ -30,7 +30,7 @@ Host cluster-front
 Host cluster
   HostName submitter
   User USERNAME
-  ProxyJump cluster-host
+  ProxyJump cluster-front
 ```
 
 ## Managing jobs
