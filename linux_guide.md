@@ -6,6 +6,8 @@
 
 To access the workstations from a non-sapienza network you have to use a VPN that you can download and setup by following the guide at [this link](https://web.uniroma1.it/infosapienza/servizio-vpn-di-ateneo).
 
+After installing the VPN, connect to this server: `castore.uniroma1.it` and use your sapienza credentials to login (_name.surname@uniroma1.it_).
+
 ### SSH
 
 #### Passwd-free connection
